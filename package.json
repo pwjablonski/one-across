@@ -22,6 +22,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-logic": "^2.1.1"
   },
+  "homepage": "https://pwjablonski.github.io/one-across/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
