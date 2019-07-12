@@ -1,0 +1,106 @@
+export default async function convertPuzToJson(files){
+    const file = files[0]
+    if(!file){
+        return null
+    }
+    const fileType = file.name.slice(file.name.lastIndexOf("."))
+    let reader = new FileReader();
+
+    
+    if(fileType === ".puz"){
+        return new Promise((resolve, reject) => {    
+            reader.onload = function(e) {
+                const bytes = new Uint8Array(e.target.result);
+                let puz;
+                if (isPuz(bytes)) {
+                    puz = new PuzReader(bytes).toJson();
+                } else {
+                    puz = JSON.parse(new TextDecoder().decode(bytes)); // TextDecoder doesn't work in Edge 16
+                }
+                resolve(puz);
+            };
+            reader.readAsArrayBuffer(file);
+        });
+    }
+    return null
+}
+
+function isPuz(bytes) {
+    const magic = 'ACROSS&DOWN';
+    for (let i = 0; i < magic.length; i++) {
+        if (bytes[2 + i] !== magic.charCodeAt(i)) return false;
+    }
+    return bytes[2 + magic.length] === 0;
+}
+
+class PuzReader {
+    constructor(buf) {
+        this.buf = buf;
+    }
+
+    readShort(ix) {
+        return this.buf[ix] | (this.buf[ix + 1] << 8);
+    }
+
+    readString() {
+        let result = [];
+        while (true) {
+        let c = this.buf[this.ix++];
+        if (c === 0) break;
+        result.push(String.fromCodePoint(c));
+        }
+        return result.join('');
+    }
+
+    toJson() {
+        let json = {};
+        let w = this.buf[0x2c];
+        let h = this.buf[0x2d];
+        let scrambled = this.readShort(0x32);
+        if (scrambled & 0x0004) {
+        // throw new ScrambledError;
+        }
+        json.size = {cols: w, rows: h};
+        let grid = [];
+        for (let i = 0; i < w * h; i++) {
+            grid.push(String.fromCodePoint(this.buf[0x34 + i]));
+        }
+        json.grid = grid;
+        this.ix = 0x34 + 2 * w * h;
+        json.title = this.readString();
+        json.author = this.readString();
+        json.copyright = this.readString();
+        let across = [];
+        let down = [];
+        let gridnums = []
+        let label = 1;
+        for (let i = 0; i < w * h; i++) {
+            if (grid[i] === '.') {
+                gridnums.push(0)
+                continue;
+            }
+            let inc = 0;
+            if (i % w === 0 || grid[i - 1] === '.') {
+                across.push(label + ". " + this.readString());
+                inc = 1;
+            }
+            if (i < w || grid[i - w] === '.') {
+                down.push(label + ". " + this.readString());
+                inc = 1;
+            }
+
+            if (i % w === 0 || grid[i - 1] === '.'){
+                gridnums.push(label)
+            } else if (i < w || grid[i - w] === '.') {
+                gridnums.push(label)
+            } else {
+                gridnums.push(0)
+            }
+
+            label += inc;
+        }
+        json.clues = {across: across, down: down};
+        json.gridnums = gridnums
+        return json;
+    }
+}
