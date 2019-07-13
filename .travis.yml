@@ -5,15 +5,17 @@ branches:
   only:
     - master
 cache:
+  yarn: true
   directories:
   - node_modules
-script:
-  - yarn test
-  - yarn run build
+before_deploy:
+    - yarn build
 deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $github_token
-  local_dir: build
   on:
     branch: master
+    repo: pwjablonski/one-across
+  provider: firebase
+  skip_cleanup: true
+  token:
+    secure: $firebase
+  project: "one-across"

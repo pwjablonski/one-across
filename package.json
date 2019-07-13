@@ -22,14 +22,11 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-logic": "^2.1.1"
   },
-  "homepage": "https://pwjablonski.github.io/one-across/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "yarn build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -46,7 +43,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "gh-pages": "^2.0.1"
-  }
+  "devDependencies": {}
 }
