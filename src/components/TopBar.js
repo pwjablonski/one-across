@@ -8,9 +8,9 @@ export default function Toolbar() {
             1A
         </div>
         <div className="topbar__contatainer">
-            {/* <button className="topbar__button">
+            <button className="topbar__button">
                 Sign In
-            </button> */}
+            </button>
         </div>
     </header>
   );
