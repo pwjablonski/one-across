@@ -1,4 +1,4 @@
-import once from 'lodash-es/once';
+import once from 'lodash/once';
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import 'firebase/firestore'
