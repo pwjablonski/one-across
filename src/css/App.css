@@ -66,9 +66,15 @@ ol, ul {
 
 .puzzle_header {
   display: flex;
-  margin: 20px 20px;
-  justify-content: space-between;
+  padding: 20px 20px;
+  margin: auto;
+  justify-content: space-around;
+  width: 100%;
 
+}
+
+.puzzle_header-details{
+  padding-right: 22px;
 }
 
 .puzzle_header-details-date {
@@ -86,6 +92,48 @@ ol, ul {
   line-height: 1.21875rem;
   content: "\25AA";
   margin-right: 8px;
+}
+
+.puzzle_header-tools{
+  width: 25%
+}
+
+.puzzle_header-tools-button{
+  background-color: #fff;
+  width: 100%;
+  max-width: 264px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  outline: none;
+  justify-content: center;
+  padding: 10px 0;
+  margin-bottom: 15px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.puzzle_header-tools-button a {
+  color: #787886;
+  text-decoration: none;
+}
+
+.puzzle_header-tools-button:hover{
+  background-color: #e6e6e6;
+  color: #000
+}
+
+.puzzle_header-tools-button span{
+  margin-left:10px
+}
+
+.puzzle__loading{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 67px);
+  left: 0;
+  top: 0;
 }
 
 /* Toolbar */
@@ -332,6 +380,9 @@ ol, ul {
 
 .topbar__brand{
   font-size: 2em;
+  text-decoration: none;
+  color: #000;
+
 }
 
 /* choose puzzzle */

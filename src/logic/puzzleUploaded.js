@@ -3,7 +3,7 @@ import {createLogic} from 'redux-logic';
 import {
     setCurrentPuzzle,
     setSessionData,
-    displayPuzzle,
+    puzzleLoadCompleted,
 } from '../actions'
 import {
   createPuzzle,
@@ -11,7 +11,7 @@ import {
 } from '../clients/firebase'
 import uuid from 'uuid/v4';
 import convertPuzToJson from '../util/convertPuzToJson'
-
+import history from "../util/history";
 
 export default createLogic({
   type: 'PUZZLE_UPLOADED',
@@ -28,7 +28,8 @@ export default createLogic({
     dispatch(setCurrentPuzzle(puzzle))
     dispatch(setSessionData(session));
 
-    dispatch(displayPuzzle());
+    dispatch(puzzleLoadCompleted());
+    history.push(`${session['currentSessionId']}`)
 
     done();
   },

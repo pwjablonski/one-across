@@ -20,7 +20,7 @@ import {
   updateCurrentDirection,
   closePauseGameModal,
   revealPuzzle,
-  displayPuzzle,
+  puzzleLoadCompleted,
   hidePuzzle,
 } from './ui';
 
@@ -55,6 +55,6 @@ export {
   resetSessionData,
   puzzleComponentLoaded,
   initializeSessionListener,
-  displayPuzzle,
+  puzzleLoadCompleted,
   hidePuzzle,
 };

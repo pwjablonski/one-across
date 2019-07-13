@@ -39,8 +39,8 @@ export const revealPuzzle = createAction(
     'REVEAL_PUZZLE',
 );
 
-export const displayPuzzle = createAction(
-    'DISPLAY_PUZZLE',
+export const puzzleLoadCompleted = createAction(
+    'PUZZLE_LOAD_COMPLETED',
 );
 
 export const hidePuzzle = createAction(

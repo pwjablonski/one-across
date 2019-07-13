@@ -5,7 +5,7 @@ import {
   updateCurrentClue,
   updateHilightedCells,
   updateCurrentDirection,
-  displayPuzzle,
+  puzzleLoadCompleted,
   hidePuzzle
 } from '../actions';
 
@@ -19,7 +19,7 @@ const initialState = {
   pausedGameModalIsOpen: false,
   winnerModalIsOpen: false,
   currentPuzzleIsSet: false,
-  puzzleIsDisplayed: false
+  puzzleLoaded: false
 }
 
 export default handleActions({
@@ -47,9 +47,9 @@ export default handleActions({
       }
     ),
 
-  [displayPuzzle]: (state,
+  [puzzleLoadCompleted]: (state,
     ) => produce(state, draft => {
-        draft['puzzleIsDisplayed'] = true;
+        draft['puzzleLoaded'] = true;
       }
     ),
   

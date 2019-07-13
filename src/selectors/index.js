@@ -17,7 +17,7 @@ import isPausedGameModalOpen from './isPausedGameModalOpen'
 import getCurrentSessionId from './getCurrentSessionId'
 import getCurrentPuzzleTitle from './getCurrentPuzzleTitle'
 import getClueLists from './getClueLists'
-import isPuzzleDisplayed from './isPuzzleDisplayed'
+import isPuzzleLoaded from './isPuzzleLoaded'
 
 
 export {
@@ -40,5 +40,5 @@ export {
     getCurrentSessionId,
     getCurrentPuzzleTitle,
     getClueLists,
-    isPuzzleDisplayed,
+    isPuzzleLoaded,
 };

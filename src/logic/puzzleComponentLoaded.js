@@ -5,11 +5,11 @@ import {
   setCurrentPuzzle, 
   updateHilightedCells,
   initializeSessionListener,
-  displayPuzzle,
-  hidePuzzle
+  puzzleLoadCompleted,
 } from '../actions'
 import {getSessionData, getPuzzleData} from '../clients/firebase'
 import findClueAndHilightedCells from '../util/findClueAndHilightedCells'
+import history from "../util/history";
 
 export default createLogic({
   type: 'PUZZLE_COMPONENT_LOADED',
@@ -22,11 +22,11 @@ export default createLogic({
       dispatch(initializeSessionListener(action.payload.id))
       const {newHilightedCells} = findClueAndHilightedCells("across", 0, puzzle.data().grid, puzzle.data().gridnums);
       dispatch(updateHilightedCells(newHilightedCells))
-      dispatch(displayPuzzle());
+      dispatch(puzzleLoadCompleted());
     } 
     else {
       dispatch(resetSessionData());
-      dispatch(hidePuzzle());
+      history.push('/')  
     }
 
     done();
