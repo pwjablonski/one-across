@@ -5,6 +5,7 @@ import puzzleUploaded from './puzzleUploaded';
 import updateCharacter from './updateCharacter';
 import puzzleComponentLoaded from './puzzleComponentLoaded';
 import listenForSessionDataChange from './listenForSessionDataChange'
+import clueListItemClicked from './clueListItemClicked'
 
 export default [
     keyInputted,
@@ -14,4 +15,5 @@ export default [
     puzzleUploaded,
     updateCharacter,
     listenForSessionDataChange,
+    clueListItemClicked,
 ];

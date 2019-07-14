@@ -21,7 +21,8 @@ import {
   closePauseGameModal,
   revealPuzzle,
   puzzleLoadCompleted,
-  hidePuzzle,
+  clueListItemClicked,
+
 } from './ui';
 
 import {
@@ -56,5 +57,5 @@ export {
   puzzleComponentLoaded,
   initializeSessionListener,
   puzzleLoadCompleted,
-  hidePuzzle,
+  clueListItemClicked
 };

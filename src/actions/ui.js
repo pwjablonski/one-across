@@ -43,6 +43,7 @@ export const puzzleLoadCompleted = createAction(
     'PUZZLE_LOAD_COMPLETED',
 );
 
-export const hidePuzzle = createAction(
-    'HIDE_PUZZLE',
-);
+export const clueListItemClicked = createAction(
+    'CLUE_LIST_ITEM_CLICKED',
+    (clue, direction) => ({clue, direction}),
+)
