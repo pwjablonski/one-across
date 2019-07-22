@@ -28,7 +28,7 @@ export default function UploadPuzzle() {
             isDragActive ?
               <FontAwesomeIcon icon={faCloudUploadAlt} size="2x" />
               :
-              <p>Drag a <strong> .puz </strong> file here to play!</p>
+              <p>Click or drag a <strong> .puz </strong> file here to play!</p>
           }
         </div>
     </div>
