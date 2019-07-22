@@ -18,5 +18,5 @@ export default function Modal({ children, isOpen }) {
 
 Modal.propTypes = {
   children: PropTypes.node.isRequired,
-  isOpen: PropTypes.string.isRequired
+  isOpen: PropTypes.bool.isRequired
 };

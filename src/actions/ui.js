@@ -32,3 +32,5 @@ export const clueListItemClicked = createAction(
   "CLUE_LIST_ITEM_CLICKED",
   (clue, direction) => ({ clue, direction })
 );
+
+export const closeWinnerModal = createAction("CLOSE_WINNER_MODAL");

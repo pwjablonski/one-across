@@ -1,6 +1,5 @@
 import { createLogic } from "redux-logic";
-
-import uuid from "uuid/v4";
+import shortid from "shortid";
 import {
   setCurrentPuzzle,
   setSessionData,
@@ -20,7 +19,7 @@ export default createLogic({
     const puzzleResult = await createPuzzle(puzzle);
     const { session } = state;
     session.puzzleId = puzzleResult.id;
-    session.currentSessionId = uuid().toString();
+    session.currentSessionId = shortid.generate();
     await createPuzzleSession(session);
     dispatch(setCurrentPuzzle(puzzle));
     dispatch(setSessionData(session));

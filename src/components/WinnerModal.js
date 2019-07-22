@@ -22,9 +22,13 @@ export default function WinnerModal() {
         <h1>Congratulations!</h1>
         <p>You finished the puzzle in {time} </p>
       </div>
-      <div className="modal__button" onClick={onCloseWinnerModal}>
+      <button
+        className="modal__button"
+        type="button"
+        onClick={onCloseWinnerModal}
+      >
         OK
-      </div>
+      </button>
     </Modal>
   );
 }

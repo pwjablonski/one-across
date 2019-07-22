@@ -20,9 +20,9 @@ export default function PausedGameModal() {
           Your game has been <strong>paused</strong>
         </p>
       </div>
-      <div className="modal__button" onClick={onUnpauseTimer}>
+      <button className="modal__button" type="button" onClick={onUnpauseTimer}>
         OK
-      </div>
+      </button>
     </Modal>
   );
 }

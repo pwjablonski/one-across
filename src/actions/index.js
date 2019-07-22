@@ -21,12 +21,13 @@ import {
   closePauseGameModal,
   revealPuzzle,
   puzzleLoadCompleted,
-  clueListItemClicked
+  clueListItemClicked,
+  closeWinnerModal
 } from "./ui";
 
 import { puzzleUploaded, puzzleComponentLoaded } from "./puzzle";
 
-import { setCurrentPuzzle } from "./currentPuzzle";
+import setCurrentPuzzle from "./currentPuzzle";
 
 export {
   cellSelected,
@@ -51,5 +52,6 @@ export {
   puzzleComponentLoaded,
   initializeSessionListener,
   puzzleLoadCompleted,
-  clueListItemClicked
+  clueListItemClicked,
+  closeWinnerModal
 };

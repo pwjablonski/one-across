@@ -51,25 +51,31 @@ export default function Toolbar() {
           </div>
         </li>
         <li className="toolbar-item toolbar-timer">
-          <div className="timer-button toolbar-button" onClick={onPauseTimer}>
+          <button
+            className="timer-button toolbar-button"
+            type="button"
+            onClick={onPauseTimer}
+          >
             <div className="timer-count">{time}</div>
             <FontAwesomeIcon className="toolbar-button-pause" icon={faPause} />
-          </div>
+          </button>
         </li>
         <li className="toolbar-item">
           <div className="toolbar-button toolbar-button-text">rebus</div>
-          <div
+          <button
             className="toolbar-button toolbar-button-text"
+            type="button"
             onClick={onClearPuzzle}
           >
             clear
-          </div>
-          <div
+          </button>
+          <button
             className="toolbar-button toolbar-button-text"
+            type="button"
             onClick={onRevealPuzzle}
           >
             reveal
-          </div>
+          </button>
           <div className="toolbar-button toolbar-button-text">check</div>
           <div className="toolbar-button">
             <FontAwesomeIcon

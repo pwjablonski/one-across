@@ -18,6 +18,7 @@ import getCurrentSessionId from "./getCurrentSessionId";
 import getCurrentPuzzleTitle from "./getCurrentPuzzleTitle";
 import getClueLists from "./getClueLists";
 import isPuzzleLoaded from "./isPuzzleLoaded";
+import isWinnerModalOpen from "./isWinnerModalOpen";
 
 export {
   getCurrentCharacter,
@@ -39,5 +40,6 @@ export {
   getCurrentSessionId,
   getCurrentPuzzleTitle,
   getClueLists,
-  isPuzzleLoaded
+  isPuzzleLoaded,
+  isWinnerModalOpen
 };

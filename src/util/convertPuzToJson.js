@@ -1,32 +1,6 @@
-export default async function convertPuzToJson(files) {
-  const file = files[0];
-  if (!file) {
-    return null;
-  }
-  const fileType = file.name.slice(file.name.lastIndexOf("."));
-  const reader = new FileReader();
-
-  if (fileType === ".puz") {
-    return new Promise(resolve => {
-      reader.onload = e => {
-        const bytes = new Uint8Array(e.target.result);
-        let puz;
-        if (isPuz(bytes)) {
-          puz = new PuzReader(bytes).toJson();
-        } else {
-          puz = JSON.parse(new TextDecoder().decode(bytes)); // TextDecoder doesn't work in Edge 16
-        }
-        resolve(puz);
-      };
-      reader.readAsArrayBuffer(file);
-    });
-  }
-  return null;
-}
-
 function isPuz(bytes) {
   const magic = "ACROSS&DOWN";
-  for (let i = 0; i < magic.length; i++) {
+  for (let i = 0; i < magic.length; i += 1) {
     if (bytes[2 + i] !== magic.charCodeAt(i)) return false;
   }
   return bytes[2 + magic.length] === 0;
@@ -38,6 +12,7 @@ class PuzReader {
   }
 
   readShort(ix) {
+    // eslint-disable-next-line
     return this.buf[ix] | (this.buf[ix + 1] << 8);
   }
 
@@ -56,6 +31,7 @@ class PuzReader {
     const w = this.buf[0x2c];
     const h = this.buf[0x2d];
     const scrambled = this.readShort(0x32);
+    // eslint-disable-next-line
     if (scrambled & 0x0004) {
       // throw new ScrambledError;
     }
@@ -102,4 +78,30 @@ class PuzReader {
     json.gridnums = gridnums;
     return json;
   }
+}
+
+export default async function convertPuzToJson(files) {
+  const file = files[0];
+  if (!file) {
+    return null;
+  }
+  const fileType = file.name.slice(file.name.lastIndexOf("."));
+  const reader = new FileReader();
+
+  if (fileType === ".puz") {
+    return new Promise(resolve => {
+      reader.onload = e => {
+        const bytes = new Uint8Array(e.target.result);
+        let puz;
+        if (isPuz(bytes)) {
+          puz = new PuzReader(bytes).toJson();
+        } else {
+          puz = JSON.parse(new TextDecoder().decode(bytes));
+        }
+        resolve(puz);
+      };
+      reader.readAsArrayBuffer(file);
+    });
+  }
+  return null;
 }
