@@ -1,3 +1,3 @@
 export default function getHilightedCells(state) {
-    return state.ui.hilightedCells;
+  return state.ui.hilightedCells;
 }

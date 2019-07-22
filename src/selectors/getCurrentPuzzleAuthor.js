@@ -1,3 +1,3 @@
 export default function getCurrentPuzzleAuthor(state) {
-    return state.currentPuzzle.author;
+  return state.currentPuzzle.author;
 }

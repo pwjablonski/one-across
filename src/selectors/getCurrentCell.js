@@ -1,3 +1,3 @@
 export default function getCurrentCell(state) {
-    return state.ui.currentCell;
+  return state.ui.currentCell;
 }

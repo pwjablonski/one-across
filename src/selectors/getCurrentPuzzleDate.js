@@ -1,3 +1,3 @@
 export default function getCurrentPuzzleDate(state) {
-    return state.currentPuzzle.date;
+  return state.currentPuzzle.date;
 }

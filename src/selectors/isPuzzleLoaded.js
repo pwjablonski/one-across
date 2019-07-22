@@ -1,3 +1,3 @@
 export default function isPuzzleLoaded(state) {
-    return state.ui.puzzleLoaded;
+  return state.ui.puzzleLoaded;
 }

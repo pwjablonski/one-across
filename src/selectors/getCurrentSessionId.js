@@ -1,3 +1,3 @@
 export default function getCurrentSessionId(state) {
-    return state.session.currentSessionId;
+  return state.session.currentSessionId;
 }

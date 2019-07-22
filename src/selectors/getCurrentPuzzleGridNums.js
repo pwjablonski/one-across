@@ -1,3 +1,3 @@
 export default function getCurrentPuzzleGridNums(state) {
-    return state.currentPuzzle.gridnums;
+  return state.currentPuzzle.gridnums;
 }

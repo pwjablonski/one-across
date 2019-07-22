@@ -1,3 +1,3 @@
 export default function getClueLists(state) {
-    return state.currentPuzzle.clues;
+  return state.currentPuzzle.clues;
 }

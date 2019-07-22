@@ -1,3 +1,3 @@
 export default function getFill(state) {
-    return state.session.fill;
+  return state.session.fill;
 }

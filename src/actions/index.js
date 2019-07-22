@@ -8,8 +8,8 @@ import {
   setCurrentSessionId,
   setSessionData,
   resetSessionData,
-  initializeSessionListener,
-} from './session'
+  initializeSessionListener
+} from "./session";
 
 import {
   cellSelected,
@@ -21,18 +21,12 @@ import {
   closePauseGameModal,
   revealPuzzle,
   puzzleLoadCompleted,
-  clueListItemClicked,
+  clueListItemClicked
+} from "./ui";
 
-} from './ui';
+import { puzzleUploaded, puzzleComponentLoaded } from "./puzzle";
 
-import {
-  puzzleUploaded,
-  puzzleComponentLoaded,
-} from './puzzle';
-
-import {
-  setCurrentPuzzle,
-} from './currentPuzzle';
+import { setCurrentPuzzle } from "./currentPuzzle";
 
 export {
   cellSelected,

@@ -1,3 +1,3 @@
 export default function getTimerValue(state) {
-    return state.session.timerValue;
+  return state.session.timerValue;
 }
