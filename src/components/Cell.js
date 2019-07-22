@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "../css/App.css";
 import classnames from "classnames";
 
@@ -48,3 +49,13 @@ export default function Cell({
     </g>
   );
 }
+
+Cell.propTypes = {
+  content: PropTypes.string.isRequired,
+  fill: PropTypes.string.isRequired,
+  gridNum: PropTypes.number.isRequired,
+  index: PropTypes.number.isRequired,
+  isHilighted: PropTypes.bool.isRequired,
+  isSelected: PropTypes.bool.isRequired,
+  onCellSelected: PropTypes.func.isRequired
+};

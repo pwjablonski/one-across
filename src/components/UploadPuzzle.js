@@ -8,12 +8,13 @@ import { puzzleUploaded } from "../actions";
 
 export default function UploadPuzzle() {
   const dispatch = useDispatch();
-  const onDrop = useCallback(onUpload);
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   function onUpload(file) {
     dispatch(puzzleUploaded(file));
   }
+
+  const onDrop = useCallback(onUpload);
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
     <div className="choosepuzzle">

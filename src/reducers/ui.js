@@ -21,6 +21,7 @@ const initialState = {
   puzzleLoaded: false
 };
 
+/* eslint-disable no-param-reassign */
 export default handleActions(
   {
     [updateCurrentCell]: (state, { payload: { index } }) =>

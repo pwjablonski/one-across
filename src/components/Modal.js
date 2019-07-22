@@ -1,5 +1,6 @@
 import React from "react";
 import { createPortal } from "react-dom";
+import PropTypes from "prop-types";
 
 export default function Modal({ children, isOpen }) {
   if (!isOpen) {
@@ -14,3 +15,8 @@ export default function Modal({ children, isOpen }) {
     document.getElementById("modals")
   );
 }
+
+Modal.propTypes = {
+  children: PropTypes.node.isRequired,
+  isOpen: PropTypes.string.isRequired
+};

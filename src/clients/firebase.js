@@ -4,8 +4,6 @@ import "firebase/auth";
 import "firebase/firestore";
 import config from "../config";
 
-export const { loadDatabase } = buildFirebase();
-
 function buildFirebase(appName = undefined) {
   const app = firebase.initializeApp(
     {
@@ -25,6 +23,8 @@ function buildFirebase(appName = undefined) {
     })
   };
 }
+
+export const { loadDatabase } = buildFirebase();
 
 export async function createPuzzle(puzzleData) {
   const database = await loadDatabase();

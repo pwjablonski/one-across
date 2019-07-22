@@ -1,5 +1,6 @@
 import React from "react";
 import "../css/App.css";
+import PropTypes from "prop-types";
 import classnames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 import { clueListItemClicked } from "../actions";
@@ -10,7 +11,7 @@ export default function ClueList({ clues, direction }) {
   const currentClue = useSelector(getCurrentClue);
   const currentDirection = useSelector(getCurrentDirection);
 
-  function onClueListItemClicked(clue, direction) {
+  function onClueListItemClicked(clue) {
     dispatch(clueListItemClicked(clue, direction));
   }
 
@@ -27,7 +28,7 @@ export default function ClueList({ clues, direction }) {
                   currentDirection === direction
               })}
               key={i}
-              onClick={() => onClueListItemClicked(clue, direction)}
+              onClick={() => onClueListItemClicked(clue)}
             >
               <span className="clue-text">{clue}</span>
             </li>
@@ -37,3 +38,8 @@ export default function ClueList({ clues, direction }) {
     </div>
   );
 }
+
+ClueList.propTypes = {
+  clues: PropTypes.array.isRequired,
+  direction: PropTypes.string.isRequired
+};

@@ -24,7 +24,7 @@ const initialState = {
   // isTimerPaused: false,
   // pausedGameModalIsOpen: false,
 };
-
+/* eslint-disable no-param-reassign */
 export default handleActions(
   {
     [setSessionData]: (state, { payload: { sessionData } }) =>

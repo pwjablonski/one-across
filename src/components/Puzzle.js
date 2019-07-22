@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../css/App.css";
+import PropTypes from "prop-types";
 // import Toolbar from './Toolbar';
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -46,3 +47,7 @@ export default function Puzzle({ match }) {
     </div>
   );
 }
+
+Puzzle.propTypes = {
+  match: PropTypes.object.isRequired
+};
