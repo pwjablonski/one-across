@@ -9,9 +9,7 @@ Upload any .puz file to get start then click the Share button to send an inviati
 Happy Solving!
 
 
-## Contributors
-
-Welcoming contibutors!
+## Want to contribute?
 
 
 ### `npm start`
