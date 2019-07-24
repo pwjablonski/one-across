@@ -17,17 +17,15 @@ export default function UploadPuzzle() {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
-    <div className="choosepuzzle">
-      <div {...getRootProps()}>
-        <input {...getInputProps()} />
-        {isDragActive ? (
-          <FontAwesomeIcon icon={faCloudUploadAlt} size="2x" />
-        ) : (
-          <p>
-            Click or drag a <strong> .puz </strong> file here to play!
-          </p>
-        )}
-      </div>
+    <div {...getRootProps()}>
+      <input {...getInputProps()} />
+      {isDragActive ? (
+        <FontAwesomeIcon icon={faCloudUploadAlt} size="2x" />
+      ) : (
+        <p>
+          Click or drag a <strong> .puz </strong> file here to play!
+        </p>
+      )}
     </div>
   );
 }
