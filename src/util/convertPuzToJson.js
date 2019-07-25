@@ -41,7 +41,7 @@ class PuzReader {
       grid.push(String.fromCodePoint(this.buf[0x34 + i]));
     }
     json.grid = grid;
-    this.ix = 0x34 + 2 * w * h;
+    this.ix = 0x33 + 2 * w * h;
     json.title = this.readString();
     json.author = this.readString();
     json.copyright = this.readString();
