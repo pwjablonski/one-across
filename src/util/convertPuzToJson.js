@@ -94,7 +94,6 @@ export default async function convertPuzToJson(files) {
         let puz;
         if (isPuz(bytes)) {
           puz = puzToJson(bytes);
-          // puz = new PuzReader(bytes).toJson();
         }
         resolve(puz);
       };
